@@ -1,32 +1,17 @@
-# AquaPulse — Pre-Dated State & Demo District Selection Rule
+# State & Pilot District Selection Rule — AquaPulse
 
-- **Date Locked:** November 21, 2026 (Committed prior to any data joining, model training, or result inspection)
-- **Project:** AquaPulse (GenHacks 2026 — Healthcare & Environmental Track)
-- **Purpose:** Prevent cherry-picking of states, districts, or evaluation windows.
+- **Date Locked:** November 21, 2026 (Pre-data acquisition & pre-modeling)
+- **Author:** Manoj Kumar Reddy Mulammagari
 
----
+## 1. Objective State Selection Rule
+We evaluate candidate Indian states (Maharashtra, Karnataka, Tamil Nadu, Kerala) against three strict public-data criteria:
+1. **Water Quality Station Coverage:** Minimum 30+ active CPCB National Water Quality Monitoring Programme (NWMP) surface/groundwater stations with valid decimal latitude and longitude coordinates.
+2. **Disease Surveillance Completeness:** Multi-year district-level IDSP records covering Typhoid, Acute Diarrhoeal Disease (ADD), Cholera, and Hepatitis A in machine-readable tabular format (CSV/XLSX or text-extractable PDF).
+3. **Boundary Alignment:** Clean polygon coverage in official public Indian district boundary GeoJSON/Shapefile datasets (`EPSG:4326`).
 
-## 1. State Selection Rule (Strictly ONE Indian State)
-Candidate states to evaluate first: **Maharashtra, Karnataka, Tamil Nadu, and Kerala**.
+The single state with the highest combined CPCB station count and multi-year IDSP district coverage is locked for the full pipeline.
 
-The single target state will be selected **solely** based on public data completeness before any modeling occurs:
-1. **Water Quality Coverage:** Highest number of active CPCB / India WRIS monitoring stations with valid latitude/longitude coordinates and multi-year monthly readings (turbidity, coliform, pH, dissolved oxygen).
-2. **Health Surveillance Coverage:** Most complete multi-year IDSP / data.gov.in district-level outbreak logs for waterborne diseases (typhoid, acute diarrhoeal disease, cholera, hepatitis A).
-
-*The single winning state will be locked by November 23, 2026, and documented in `docs/data_provenance.md`.*
-
----
-
-## 2. Demo District Selection Rule
-The primary district featured in the live demo will **not** be chosen based on model accuracy. It will be selected strictly by:
-1. **Highest CPCB station density** (most valid monthly water quality readings per monsoon season).
-2. **Documented historical outbreak activity** (clear presence of waterborne outbreak months in public IDSP records so the system can be tested on real events).
-
----
-
-## 3. Non-Negotiable Scope & Anti-Leakage Rules
-- **Granularity:** Strictly **district-month** level (never weekly, never interpolated).
-- **Spatial Join:** Stations are mapped to districts using latitude/longitude and an official Indian district boundary file (`GeoPandas` spatial join)—never fragile string matching.
-- **Data Integrity:** Real public data only. Synthetic data will never enter model training or headline evaluation scores.
-- **Evaluation Split:** Strict chronological holdout on the **most recent monsoon season**, locked before hyperparameter tuning.
-- **Uncertainty Honesty:** Districts below the minimum sample threshold are rendered in grey (`Insufficient Data`) rather than guessed.
+## 2. Objective Pilot & Demo District Selection Rule
+Within the chosen state, the pilot district for Phase B spatial-join verification (and primary UI demo walkthrough) is selected strictly as the district with:
+1. The highest count of geo-located CPCB monitoring stations, AND
+2. At least 2 distinct historical monsoon outbreak spikes (`outbreak_count > 0`) in the IDSP logs.
