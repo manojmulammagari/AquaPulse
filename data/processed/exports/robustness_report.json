@@ -1,0 +1,45 @@
+{
+  "report_type": "Frozen-Model NumPy Robustness Stress Test (Strictly Separate from Headline Metrics)",
+  "generated_at": "2026-11-24T08:15:00Z",
+  "model_frozen_train_window": "2021-01 to 2024-12",
+  "stress_evaluation_window": "2025-06 to 2025-09 (26 Sufficient Districts, n=104)",
+  "decision_threshold": 0.58,
+  "clean_reference": {
+    "accuracy": 0.6442,
+    "outbreak_recall": 0.5,
+    "mean_risk_score": 0.526,
+    "high_risk_alerts": 37
+  },
+  "stress_tests": {
+    "masking_20pct": {
+      "scenario": "random_station_telemetry_masking_20pct",
+      "mask_rate": 0.2,
+      "monte_carlo_trials": 50,
+      "mean_outbreak_recall": 0.5,
+      "std_outbreak_recall": 0.0,
+      "mean_accuracy": 0.6442,
+      "alert_stability_agreement": 1.0,
+      "mean_abs_risk_score_shift": 0.0
+    },
+    "masking_40pct": {
+      "scenario": "random_station_telemetry_masking_40pct",
+      "mask_rate": 0.4,
+      "monte_carlo_trials": 50,
+      "mean_outbreak_recall": 0.5,
+      "std_outbreak_recall": 0.0,
+      "mean_accuracy": 0.6442,
+      "alert_stability_agreement": 1.0,
+      "mean_abs_risk_score_shift": 0.0
+    },
+    "contamination_spike": {
+      "scenario": "simulated_monsoon_contamination_spike_on_active_sensors",
+      "active_sensor_rows_spiked": 0,
+      "clean_mean_risk_score": 0.526,
+      "spiked_mean_risk_score": 0.526,
+      "mean_risk_score_delta": 0.0,
+      "clean_high_risk_alerts": 37,
+      "spiked_high_risk_alerts": 37,
+      "pct_rows_non_decreasing_risk": 1.0
+    }
+  }
+}
