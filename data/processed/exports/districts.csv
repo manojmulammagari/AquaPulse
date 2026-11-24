@@ -1,0 +1,28 @@
+district_id,state_name,district_name,geojson_code,station_count,monsoon_seasons_available,is_insufficient_data
+216,Karnataka,Bagalkot,KA_216,3,4,False
+217,Karnataka,Bangalore Rural,KA_217,8,4,False
+218,Karnataka,Bangalore Urban,KA_218,94,1,False
+219,Karnataka,Belgaum,KA_219,5,4,False
+220,Karnataka,Bellary,KA_220,4,2,False
+221,Karnataka,Bidar,KA_221,3,2,False
+222,Karnataka,Bijapur,KA_222,2,1,False
+223,Karnataka,Chamrajnagar,KA_223,3,4,False
+224,Karnataka,Chikmagalur,KA_224,3,4,False
+225,Karnataka,Chitradurga,KA_225,2,3,False
+226,Karnataka,Dakshin Kannad,KA_226,9,1,False
+227,Karnataka,Davanagere,KA_227,11,4,False
+228,Karnataka,Dharwad,KA_228,5,1,False
+229,Karnataka,Gadag,KA_229,0,0,True
+230,Karnataka,Gulbarga,KA_230,19,2,False
+231,Karnataka,Hassan,KA_231,8,4,False
+232,Karnataka,Haveri,KA_232,6,4,False
+233,Karnataka,Kodagu,KA_233,3,4,False
+234,Karnataka,Kolar,KA_234,6,1,False
+235,Karnataka,Koppal,KA_235,3,1,False
+236,Karnataka,Mandya,KA_236,8,4,False
+237,Karnataka,Mysore,KA_237,12,4,False
+238,Karnataka,Raichur,KA_238,2,1,False
+239,Karnataka,Shimoga,KA_239,2,4,False
+240,Karnataka,Tumkur,KA_240,5,2,False
+241,Karnataka,Udupi,KA_241,7,2,False
+242,Karnataka,Uttar Kannand,KA_242,9,2,False
