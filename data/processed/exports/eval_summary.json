@@ -1,0 +1,178 @@
+{
+  "project": "AquaPulse",
+  "hackathon": "GenHacks 2026",
+  "track": "Healthcare & Environmental",
+  "state": "Karnataka",
+  "generated_at": "2026-11-24T08:15:00Z",
+  "methodology": {
+    "model_family": "LightGBM (LGBMClassifier, native NaN handling, zero imputation)",
+    "train_window": "2021-01 to 2024-12 (26 sufficient districts, n=1248)",
+    "threshold_tuning_window": "2024-01 to 2024-12 (strictly pre-holdout)",
+    "locked_decision_threshold": 0.58,
+    "medium_risk_threshold": 0.319,
+    "locked_holdout_window": "2025-06 to 2025-09 (2025 Monsoon, n=104 sufficient rows)",
+    "mode_label": "Advisory Only",
+    "mode_rule": "Predictive if outbreak recall beats Same-as-Last-Year baseline by >5% relative lift; otherwise Advisory Only"
+  },
+  "locked_2025_monsoon_holdout": {
+    "same_as_last_year_baseline": {
+      "split": "2025 Monsoon (26 Sufficient Districts)",
+      "n": 104,
+      "positives": 6,
+      "predicted_pos": 21,
+      "accuracy": 0.7788,
+      "recall": 0.3333,
+      "precision": 0.0952,
+      "f1": 0.1481,
+      "tp": 2,
+      "fp": 19,
+      "tn": 79,
+      "fn": 4
+    },
+    "aquapulse_lightgbm": {
+      "split": "LightGBM 2025 Monsoon (26 Suff)",
+      "n": 104,
+      "positives": 6,
+      "predicted_pos": 37,
+      "accuracy": 0.6442,
+      "recall": 0.5,
+      "precision": 0.0811,
+      "f1": 0.1395,
+      "tp": 3,
+      "fp": 34,
+      "tn": 64,
+      "fn": 3,
+      "pr_auc": 0.067,
+      "roc_auc": 0.4651
+    },
+    "comparison": {
+      "outbreak_recall_absolute_lift": 0.1667,
+      "outbreak_recall_relative_lift_pct": 50.02,
+      "accuracy_diff_vs_baseline": -0.1346
+    }
+  },
+  "locked_2025_full_year_transparency": {
+    "same_as_last_year_baseline": {
+      "split": "2025 Full Year (26 Sufficient Districts)",
+      "n": 312,
+      "positives": 25,
+      "predicted_pos": 65,
+      "accuracy": 0.7628,
+      "recall": 0.32,
+      "precision": 0.1231,
+      "f1": 0.1778,
+      "tp": 8,
+      "fp": 57,
+      "tn": 230,
+      "fn": 17
+    },
+    "aquapulse_lightgbm": {
+      "split": "LightGBM 2025 Full Year (26 Suff)",
+      "n": 312,
+      "positives": 25,
+      "predicted_pos": 85,
+      "accuracy": 0.7115,
+      "recall": 0.4,
+      "precision": 0.1176,
+      "f1": 0.1818,
+      "tp": 10,
+      "fp": 75,
+      "tn": 212,
+      "fn": 15,
+      "pr_auc": 0.1181,
+      "roc_auc": 0.6021
+    }
+  },
+  "pilot_district_bangalore_urban_218": {
+    "selection_rule_status": "Pre-dated in docs/selection_rule.md on 2026-11-21",
+    "station_count": 94,
+    "monsoon_2025_scores": [
+      {
+        "score_id": "SCR_218_202506",
+        "year_month": "2025-06",
+        "risk_score": 0.4727,
+        "risk_tier": "Medium",
+        "historical_match_x": 1,
+        "historical_match_y": 1,
+        "confidence_label": "Low \u2014 1 season",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      },
+      {
+        "score_id": "SCR_218_202507",
+        "year_month": "2025-07",
+        "risk_score": 0.4135,
+        "risk_tier": "Medium",
+        "historical_match_x": 1,
+        "historical_match_y": 1,
+        "confidence_label": "Low \u2014 1 season",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      },
+      {
+        "score_id": "SCR_218_202508",
+        "year_month": "2025-08",
+        "risk_score": 0.3472,
+        "risk_tier": "Medium",
+        "historical_match_x": 1,
+        "historical_match_y": 1,
+        "confidence_label": "Low \u2014 1 season",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      },
+      {
+        "score_id": "SCR_218_202509",
+        "year_month": "2025-09",
+        "risk_score": 0.3472,
+        "risk_tier": "Medium",
+        "historical_match_x": 1,
+        "historical_match_y": 1,
+        "confidence_label": "Low \u2014 1 season",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      }
+    ]
+  },
+  "insufficient_data_district_gadag_229": {
+    "is_insufficient_data": true,
+    "risk_tier": "Insufficient",
+    "monsoon_2025_scores": [
+      {
+        "score_id": "SCR_229_202506",
+        "year_month": "2025-06",
+        "risk_score": null,
+        "risk_tier": "Insufficient",
+        "confidence_label": "Insufficient \u2014 0 seasons",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      },
+      {
+        "score_id": "SCR_229_202507",
+        "year_month": "2025-07",
+        "risk_score": null,
+        "risk_tier": "Insufficient",
+        "confidence_label": "Insufficient \u2014 0 seasons",
+        "outbreak_count": 0,
+        "outbreak_next_month": 0
+      },
+      {
+        "score_id": "SCR_229_202508",
+        "year_month": "2025-08",
+        "risk_score": null,
+        "risk_tier": "Insufficient",
+        "confidence_label": "Insufficient \u2014 0 seasons",
+        "outbreak_count": 0,
+        "outbreak_next_month": 1
+      },
+      {
+        "score_id": "SCR_229_202509",
+        "year_month": "2025-09",
+        "risk_score": null,
+        "risk_tier": "Insufficient",
+        "confidence_label": "Insufficient \u2014 0 seasons",
+        "outbreak_count": 1,
+        "outbreak_next_month": 0
+      }
+    ]
+  }
+}
